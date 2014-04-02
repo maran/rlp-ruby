@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "rlp-ruby"
   gem.homepage = "http://github.com/maran/rlp-ruby"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A recursive length prefix implementation in ruby.}
+  gem.description = %Q{With this library it's possible to encode ruby objects into RLP arrays.}
   gem.email = "maran.hidskes@gmail.com"
   gem.authors = ["Maran"]
   # dependencies defined in Gemfile

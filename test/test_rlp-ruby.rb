@@ -89,6 +89,7 @@ class TestRlpRuby < Test::Unit::TestCase
     should "encode integer" do
         assert_equal 1024.to_rlp, [0x82, 0x04, 0x00]
         assert_equal 15.to_rlp, [0x0f]
+        assert_equal 128.to_rlp, [129, 128]
     end
 
     should "encode empty structures" do
