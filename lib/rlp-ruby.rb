@@ -2,29 +2,6 @@ require_relative 'encode'
 require_relative 'core_ext/array'
 require_relative 'core_ext/fixnum'
 String.send(:include, RLP::Encode)
-class Array
-  def get(position)
-    self[position]
-  end
-
-  def as_string
-    self.collect{|x| x.as_string}.join
-  end
-
-  def as_int
-    self.reverse_bytes
-  end
-end
-
-class Fixnum
-  def as_int
-    return self
-  end
-
-  def as_string
-    return self.chr
-  end
-end
 
 module RLP
   def self.log(message)

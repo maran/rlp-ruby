@@ -1,6 +1,18 @@
 module RLP
   module Extensions
     module Array
+      def get(position)
+        self[position]
+      end
+
+      def as_string
+        self.collect{|x| x.as_string}.join
+      end
+
+      def as_int
+        self.reverse_bytes
+      end
+
       def to_rlp
         return [0xc0] if self == []
 

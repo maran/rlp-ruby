@@ -3,6 +3,14 @@ module RLP
     module Fixnum
       include RLP::Encode
 
+      def as_int
+        return self
+      end
+
+      def as_string
+        return self.chr
+      end
+
       def bytesize
         self.bytes.length
       end
