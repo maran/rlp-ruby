@@ -32,17 +32,17 @@ module RLP
       read_data = data[start_at..(start_at+read_length-1)]
       RLP.log("=> Read: #{read_data}")
       return read_data, (start_at + read_length)
-    # Reading a string that is longer then 55 bytes
+    # Reading a string that is longer than 55 bytes
     elsif value <= 0xbf
       start_at = pos + 1
       read_length = value - 0xb7
 
-      read_length_length = data[start_at..(start_at+read_length-1)].first
+      read_length_length = data[start_at..(start_at+read_length-1)].reverse_bytes
       RLP.log("<= 0xbf, starting reading at the #{start_at}th byte and reading #{read_length_length} bytes")
-      read_data = data[(start_at+1)..read_length_length]
       RLP.log("=> Read: #{read_data}")
+      read_data = data[(start_at+read_length),read_length_length]
 
-      return read_data, read_length_length
+      return read_data, start_at+read_length+read_length_length
     # Reading a list that is up to (and including) 55 bytes long
     elsif value <= 0xf7
       amount = value - 0xc0
